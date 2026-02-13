@@ -1,0 +1,7 @@
+#!/command/with-contenv bash
+cd /home/ubuntu
+export HOME=/home/ubuntu
+exec s6-setuidgid ubuntu \
+  ttyd --interface 127.0.0.1 --port 7684 --writable \
+    --credential "${TTYD_CREDENTIAL}" \
+    gemini

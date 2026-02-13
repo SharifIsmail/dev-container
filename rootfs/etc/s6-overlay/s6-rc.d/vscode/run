@@ -1,0 +1,8 @@
+#!/command/with-contenv bash
+export HOME=/home/ubuntu
+exec s6-setuidgid ubuntu \
+  code serve-web \
+    --host 127.0.0.1 \
+    --port 8080 \
+    --without-connection-token \
+    --accept-server-license-terms

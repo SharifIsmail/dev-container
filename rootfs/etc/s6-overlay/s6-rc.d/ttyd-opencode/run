@@ -1,0 +1,8 @@
+#!/command/with-contenv bash
+cd /home/ubuntu
+export HOME=/home/ubuntu
+export PATH="/home/ubuntu/.opencode/bin:$PATH"
+exec s6-setuidgid ubuntu \
+  ttyd --interface 127.0.0.1 --port 7686 --writable \
+    --credential "${TTYD_CREDENTIAL}" \
+    opencode

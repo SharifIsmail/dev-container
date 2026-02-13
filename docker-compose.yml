@@ -1,0 +1,10 @@
+services:
+  dev:
+    build: .
+    image: ghcr.io/sharifismail/dev-container:latest
+    container_name: dev-container
+    restart: unless-stopped
+    network_mode: host
+    env_file: .env
+    volumes:
+      - ./home:/home/ubuntu
