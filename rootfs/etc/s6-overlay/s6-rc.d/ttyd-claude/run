@@ -3,6 +3,6 @@ cd /home/ubuntu
 export HOME=/home/ubuntu
 export PATH="$HOME/.local/bin:$PATH"
 exec s6-setuidgid ubuntu \
-  ttyd --interface 127.0.0.1 --port 7683 --writable \
+  ttyd --interface ${BIND_ADDR:-0.0.0.0} --port 7683 --writable \
     --credential "${TTYD_CREDENTIAL}" \
     claude
